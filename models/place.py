@@ -4,14 +4,22 @@ from os import getenv
 
 from sqlalchemy.orm import relationship
 import models
+from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.base_model import Base
-from sqlalchemy import String, Integer, Float
+from sqlalchemy import String, Integer, Float, Table
 from sqlalchemy import Column
 from sqlalchemy import ForeignKey
-
 from models.review import Review
 
+metadata = Base.metadata
+table_amenity = Table("place_amenity", metadata,
+                      Column("place_id", String(60),
+                      ForeignKey("places.id"),
+                      primary_key=True, nullable=False),
+                      Column("amenity_id", String(60),
+                      ForeignKey("amenities.id"),
+                      primary_key=True, nullable=False))
 
 class Place(BaseModel, Base):
     """ A place to stay """
@@ -45,3 +53,22 @@ class Place(BaseModel, Base):
                 if review.place_id == self.id:
                     list_review.append(review)
             return(list_review)
+
+
+        @property
+        def amenities(self):
+            """ Getter attribute amenities that returns 
+                the list of Amenity instances based onthe attribute amenity_ids
+                that contains all Amenity.id linked to the Place
+            """
+            list_amenities = []
+            for amenity in list(models.storage.all(Amenity).values()):
+                if amenity.id == self.amenity_ids:
+                    list_amenities.append(amenity)
+            return(list_amenities)
+
+        @amenities.setter
+        def amenities(self, value):
+            if type(value) == Amenity:
+                self.amenity_ids.append(value.id)
+
