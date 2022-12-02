@@ -4,7 +4,7 @@
 H1 tag: “Number: n” inside the tag BODY
 You must use the option strict_slashes=False in your route definition """
 from flask import Flask
-
+from flask import render_template
 
 app = Flask(__name__)
 
