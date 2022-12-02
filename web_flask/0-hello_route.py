@@ -6,10 +6,11 @@ Routes:
 You must use the option strict_slashes=False in your route definition """
 from flask import Flask
 
+
 app = Flask(__name__)
 
-@app.route("/", strict_slashes=False)
 
+@app.route("/", strict_slashes=False)
 def Hello_HBNB():
     """ display Hello HBNB  """
     return "Hello HBNB!"
