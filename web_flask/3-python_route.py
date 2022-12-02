@@ -15,22 +15,25 @@ def Hello_HBNB():
     """ display Hello HBNB  """
     return "Hello HBNB!"
 
+
 @app.route("/hbnb", strict_slashes=False)
 def HBNB():
     """ display HBNB  """
     return "HBNB"
 
+
 @app.route("/c/<text>", strict_slashes=False)
 def C(text):
     """ display C + text and replace "_" by " " """
     text = text.replace("_", " ")
-    return "C"+str(text)
+    return "C {}".format(text)
+
 
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
     """ display Python + text and replace "_" by " " """
     text = text.replace("_", " ")
-    return "Python"+str(text)
+    return "Python {}".format(text)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
