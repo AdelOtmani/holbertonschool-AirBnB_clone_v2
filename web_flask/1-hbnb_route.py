@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """Write a script that starts a Flask web application:
     /hbnb: display “HBNB”
-    You must use the option strict_slashes=False in your route definition 
-"""
+    You must use the option strict_slashes=False in your route definition"""
 from flask import Flask
 
 
