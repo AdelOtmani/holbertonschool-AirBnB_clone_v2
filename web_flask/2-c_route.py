@@ -29,7 +29,7 @@ if __name__ == "__main__":
 def C(text):
     """ display C + text and replace "_" by " " """
     text = text.replace("_", " ")
-    return "C"+str(text)
+    return "C {}".format(text)
 
 
 if __name__ == "__main__":
