@@ -27,7 +27,7 @@ def C(text):
     """ display C + text and replace "_" by " " """
     text = text.replace("_", " ")
     return "C {}".format(text)
- 
+
 
 @app.route("/python/", defaults={"text": "is cool"})
 @app.route("/python/<text>", strict_slashes=False)
