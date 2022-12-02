@@ -13,13 +13,10 @@ def Hello_HBNB():
     """ display Hello HBNB  """
     return "Hello HBNB!"
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0")
-
 @app.route("/hbnb", strict_slashes=False)
 def Hello_HBNB():
     """ display HBNB  """
-    return "“HBNB”"
+    return "HBNB"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
