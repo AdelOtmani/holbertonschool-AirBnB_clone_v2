@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Define DBStorage class"""
 from os import getenv
 from sqlalchemy.orm import scoped_session, sessionmaker
